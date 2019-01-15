@@ -1,9 +1,19 @@
 import React from 'react'
-import { Router, browserHistory, Route, IndexRoute } from 'react-router-dom';
-import NavBar from '../components/NavBar'
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import StarBank from './StarBank'
+import StarChart from '.StarChart'
 
 const App = (props) => {
-  return (<h1>Make It So React</h1>)
+  return (
+  <div>
+    <h1>I AM A WEBPAGE</h1>
+     <StarBank
+      key="1"
+      id="star"
+    />
+    <StarChart />
+  </div>
+  )
 }
 
 export default App

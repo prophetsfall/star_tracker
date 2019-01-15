@@ -1,0 +1,8 @@
+.navBar {
+  border-style: groove;
+  border-width: 1px;
+}
+.stars {
+  height: inherit;
+  width:inherit;
+}
