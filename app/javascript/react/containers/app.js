@@ -1,7 +1,7 @@
 import React from 'react'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import StarBank from './StarBank'
-import StarChart from '.StarChart'
+import StarChart from './StarChart'
 
 const App = (props) => {
   return (
