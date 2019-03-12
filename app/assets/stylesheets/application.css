@@ -15,16 +15,12 @@
  *= require foundation_and_overrides
 
  */
-.stars {
-  height: auto;
-  width: auto;
-  border-style: solid;
-  border-width: medium;
+#app {
+  height: 100%;
+  width: 100%;
 }
 
-#star{
-  height: 80%;
-  width: 80%;
-  border-style: solid;
-  border-width: medium;
+body {
+  height: 100%;
+  width: 100%;
 }

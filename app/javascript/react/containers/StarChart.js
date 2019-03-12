@@ -1,42 +1,49 @@
 import React, {Component} from 'react'
-import ActivityTile from '../components/ActivityTile'
+import StarContainer from './StarContainer'
+import ActivitiesContainer from './ActivitiesContainer'
+import { DragDropContextProvider } from 'react-dnd'
+import HTML5Backend from 'react-dnd-html-5-backend'
 
 class StarChart extends React.Component{
   constructor(props){
     super(props);
     this.state ={
       user:null,
-      activity:null,
+      activities:null,
       date:null,
       level: "Medium",
       duration: null
     }
   }
 
-  componentDidMount() {
-    fetch(`/api/v1/user_activities`)
-    .then(response => {
-      if (response.ok) {
-        return response;
-      } else {
-        let errorMessage = `${response.status} (${response.statusText})`,
-        error = new Error(errorMessage);
-        throw(error);
-      }
-    })
-    .then(response => response.json())
-    .then(body => {
-      let activities = body.activities
-      debugger
-      this.setState({activities:activities})
-    })
-    .catch(error => console.error(`Error in fetch: ${error.message}`));
-  }
-
   render(){
     return(
-      <h1>hi</h1>
+      <div className="large-12 columns">
+          <div className="containers large-2 columns">
+            <div className="row">
+              <div className="">
+                <StarContainer />
+              </div>
+            </div>
+            <div className="row">
+              <div className="">
+                <ActivitiesContainer />
+              </div>
+            </div>
+          </div>
+          <div className="stars large-8 columns end ">
+            Drag stars over here!
+            <div className="row">Sara</div>
+            <div className="row">Pat</div>
+          </div>
+      </div>
     )
   }
 }
-export default StarChart
+export default function StarChart() {
+  return(
+    <DragDropContextProvider backend={HTML5Backend}
+      {/* ... */}
+    </DragDropContextProvider>
+  )
+}

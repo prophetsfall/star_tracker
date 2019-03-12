@@ -1,0 +1,23 @@
+.chart {
+  border-style: solid;
+  border-width: medium;
+  height: 100%;
+  margin: .4rem;
+  padding: 2px;
+  width: 100%;
+}
+
+.stars {
+  border-style: solid;
+  border-width: medium;
+  margin: .3rem;
+  font-size: 48px;
+}
+
+.containers {
+  border-style: solid;
+  border-width: medium;
+  margin: .3rem;
+  padding: 2px;
+  width: 100%;
+}

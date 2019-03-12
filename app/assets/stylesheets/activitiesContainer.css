@@ -1,0 +1,13 @@
+.ActivitiesContainer {
+  height: 100%;
+  border-style: groove;
+  border-width: 2px;
+}
+
+.ActivitiesContainer i {
+  height: 100%;
+  padding: 4px;
+  border-radius: 50%;
+  border-style: dotted;
+  margin: 4px;
+}

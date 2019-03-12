@@ -1,0 +1,13 @@
+.StarContainer {
+  height: 100%;
+  border-style: groove;
+  border-width: 2px;
+}
+
+.StarContainer i {
+  padding: 4px;
+  height: 100%;
+  border-radius: 50%;
+  border-style: dotted;
+  margin: 4px;
+}

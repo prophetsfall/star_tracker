@@ -1,13 +1,19 @@
-import React from 'react'
+import React, {Component} from 'react'
 
-const ActivityTile = props => {
+class ActivityTile extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state={
+      activityName: this.props.name
+    }
 
-  return (
-    <div>
-      {props.activity}
-    </div>
-  )
-}
+  }
 
-
+  render(){
+    return(
+      <div>
+        <i className="fa fa-igloo"> {this.state.activityName}</i>
+      </div>
+    )}
+  }
 export default ActivityTile

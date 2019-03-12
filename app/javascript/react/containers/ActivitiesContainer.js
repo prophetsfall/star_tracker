@@ -1,13 +1,15 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import ActivityTile from '../components/ActivityTile'
-class StarBank extends React.Component{
-  constructor(props){
+
+class ActivitiesContainer extends React.Component {
+  constructor(props) {
     super(props);
-    this.state ={
-      stars:"a",
-      activities:[]
-    };
+    this.state={
+      activities: []
+    }
+    this.handleActivityClick = this.handleActivityClick.bind(this)
   }
+
   componentDidMount() {
     fetch(`/api/v1/activities`)
     .then(response => {
@@ -21,34 +23,31 @@ class StarBank extends React.Component{
     })
     .then(response => response.json())
     .then(body => {
-      debugger
       let activities = body.activities
-      this.setState({activities:activities})
+      this.setState({activities:activities});
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
-  handleClick(event){
-    event.preventDefault()
-
+  handleActivityClick(type,name,level) {
 
   }
 
-  render() {
-    let stars = this.state.stars
+
+  render(){
     let activities = this.state.activities.map(activity => {
-      return <ActivityTile
-      activity={activity} />
-    })
-    return(
-      <div className="stars">
-          <h1>{stars} Motherfucker</h1>
-          <h2>{activities}</h2>
-          <p>ygygjgjgj</p>
-      </div>
+      return( <ActivityTile
+      key={activity.id}
+      id={activity.id}
+      name={activity.name}
+      handleActivity={this.handleActivityClick}
+      />
     )
-  }
+    })
+  return(
+    <div className="ActivitiesContainer">
+      {activities}
+    </div>
+  )}
 }
-
-
-export default StarBank
+export default ActivitiesContainer
