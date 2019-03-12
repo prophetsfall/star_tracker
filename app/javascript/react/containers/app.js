@@ -1,9 +1,15 @@
 import React from 'react'
-import { Router, browserHistory, Route, IndexRoute } from 'react-router-dom';
-import NavBar from '../components/NavBar'
+import StarChart from './StarChart'
+
 
 const App = (props) => {
-  return (<h1>Make It So React</h1>)
+  return (
+    <div>
+      <div className="small-12 large-12 columns chart">
+        <StarChart />
+      </div>
+    </div>
+  )
 }
 
 export default App
