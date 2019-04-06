@@ -1,8 +1,6 @@
 import React, {Component} from 'react'
 import StarContainer from './StarContainer'
 import ActivitiesContainer from './ActivitiesContainer'
-import { DragDropContextProvider } from 'react-dnd'
-import HTML5Backend from 'react-dnd-html-5-backend'
 
 class StarChart extends React.Component{
   constructor(props){
@@ -10,40 +8,51 @@ class StarChart extends React.Component{
     this.state ={
       user:null,
       activities:null,
+      star:null,
       date:null,
       level: "Medium",
       duration: null
     }
+    this.chosenStar = this.chosenStar.bind(this)
+  }
+  chosenStar(id){
+    if (this.state.star === id) {
+      this.setState({star:null})
+    } else {
+      this.setState({star:id})
+    }
   }
 
   render(){
+    let activitiesContainer
+    if (this.state.star !==null) {
+      activitiesContainer =  < ActivitiesContainer
+        star={this.state.star}
+        
+       />
+    }
     return(
       <div className="large-12 columns">
-          <div className="containers large-2 columns">
-            <div className="row">
-              <div className="">
-                <StarContainer />
-              </div>
-            </div>
-            <div className="row">
-              <div className="">
-                <ActivitiesContainer />
-              </div>
+      <div className="stars large-8 columns end ">
+      <div className="row">Sara</div>
+      <div className="row">Pat</div>
+      </div>
+        <div className="containers large-2 columns">
+          <div className="row">
+            <div className="">
+              <StarContainer
+                chooseStar={this.chosenStar}
+              />
             </div>
           </div>
-          <div className="stars large-8 columns end ">
-            Drag stars over here!
-            <div className="row">Sara</div>
-            <div className="row">Pat</div>
+          <div className="row">
+            <div className="">
+              {activitiesContainer}
+            </div>
           </div>
+        </div>
       </div>
     )
   }
 }
-export default function StarChart() {
-  return(
-    <DragDropContextProvider backend={HTML5Backend}
-      {/* ... */}
-    </DragDropContextProvider>
-  )
-}
+export default StarChart

@@ -1,9 +1,15 @@
 import React from 'react';
 
 const StarTile = props =>{
-  let starmap = stars.map(star =>{
-    return (<i className="{star}" value="${i}"/>)
-  })
-  return <div>{starmap}</div>
+  let className
+  if (props.id === props.className){
+    className = "selected"
+  } else {
+    className = "not-selected"
+  }
+  return (
+    <i className={props.star +" "+ className} onClick={props.handleClick}/>
+  )
+
 }
 export default StarTile;
