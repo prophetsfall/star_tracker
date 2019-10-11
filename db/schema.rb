@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2019_01_06_211236) do
   create_table "user_activities", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "activity_id"
-    t.date "date", default: "2019-01-06", null: false
+    t.date "date", default: "2019-04-04", null: false
     t.string "level", default: "Medium", null: false
     t.integer "duration"
     t.datetime "created_at", null: false

@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import StarTile from '../components/StarTile'
 
-const stars = [
+const stars =[
   "fas fa-star-half-alt fa-3x",
   "fas fa-star fa-3x",
   "fas fa-jedi fa-3x"
@@ -12,21 +12,34 @@ class StarContainer extends React.Component {
     super(props);
     this.state={
       starValue: null,
+      selectedStar:null
     }
-    this.onDrag = this.onDrag.bind(this)
+    this.handleStarSelect = this.handleStarSelect.bind(this)
   }
 
-   onDrag(event) {
-    event.preventDefault()
-
+  handleStarSelect(id){
+    if (this.state.selectedStar === id){
+      this.setState({selectedStar:null})
+    } else {
+      this.setState({selectedStar:id})
+    }
+    this.props.chooseStar(id)
   }
-
 
   render(){
-    let starMap = stars.map(star => {
+    let starMap = stars.map((star,index) => {
+      let handleClick = () => {
+        this.handleStarSelect(index)
+      }
+      let className = this.state.selectedStar
       return(
-    <i className={star} aria-hidden="true"></i>
-  )
+        <StarTile
+          star={star}
+          key={index}
+          id={index}
+          className={className}
+          handleClick={handleClick}
+        /> )
   })
 
   return(
