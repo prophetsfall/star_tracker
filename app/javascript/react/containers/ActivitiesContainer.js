@@ -29,8 +29,8 @@ class ActivitiesContainer extends React.Component {
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
-  handleActivityClick(type,name,level) {
-
+  handleActivityClick(event) {
+    debugger
   }
 
 
